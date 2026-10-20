@@ -114,3 +114,79 @@ MIT — см. [LICENSE](LICENSE).
 
 **Выполнил:** ФИО студента, группа ИС-31  
 **КГБ ПОУ ХПЭТ**, 2026
+# 🐍 gcd-backup-tool
+
+Python CLI: GCD of N numbers + backup/restore of config files.
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://python.org)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Tests](https://img.shields.io/badge/Tests-20%2F20-brightgreen)](tests/)
+
+## About
+
+Two independent CLI tools in **Python 3.10+**, no external dependencies:
+
+- 🔢 `src/gcd_tool.py` — GCD of N numbers (Euclidean algorithm)
+- 💾 `src/backup_tool.py` — timestamped `tar.gz` backups, SHA-256 verification, restore with `*.bak`
+
+Practicum project at **KhPET College**, Khabarovsk.
+
+## Features
+
+- GCD of N ≥ 1 numbers, console/file input & output
+- Handles edge cases: empty input, zeros, negatives, invalid tokens
+- Recursive config search: `*.conf`, `*.ini`, `*.cfg`, `*.yaml`, `*.yml`, `*.json`
+- Commands: `backup`, `restore`, `verify`, `list`
+- SHA-256 integrity check without extraction
+- Saves `*.bak` on restore conflicts
+- Logging of all operations
+
+## Installation
+
+```bash
+git clone https://github.com/<username>/gcd-backup-tool.git
+cd gcd-backup-tool
+```
+
+## Usage — GCD
+
+```bash
+python src/gcd_tool.py
+python src/gcd_tool.py --input numbers.txt
+python src/gcd_tool.py -i numbers.txt -o result.txt
+```
+
+Exit codes: `0` success · `1` empty list · `2` file not found · `3` format error.
+
+## Usage — Backup
+
+```bash
+python src/backup_tool.py backup  --source ./config --dest ./backups
+python src/backup_tool.py verify  --archive <archive>
+python src/backup_tool.py restore --archive <archive> --target ./config
+python src/backup_tool.py list    --dest ./backups
+```
+
+## Testing
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Expected: `Ran 20 tests · OK`.
+
+## Documentation
+
+- [`docs/TZ.md`](docs/TZ.md) — Technical specification
+- [`docs/MAINTENANCE.md`](docs/MAINTENANCE.md) — Maintenance regulation
+- [`docs/TESTCASES.md`](docs/TESTCASES.md) — Test cases
+- [`README.md`](README.md) — Русская версия
+
+## License
+
+MIT — see [LICENSE](LICENSE).
+
+---
+
+**Author:** Student Name, group IS-31  
+**KhPET College**, 2026
