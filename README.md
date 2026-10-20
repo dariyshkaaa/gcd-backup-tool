@@ -1,23 +1,169 @@
 # gcd-backup-tool
 Утилиты на Python: НОД списка чисел (Евклид) и резервное копирование конфигов (tar.gz + SHA-256). Полная документация.
-MIT License
+# gcd-backup-tool
 
-Copyright (c) 2026 ФИО Студента
+Консольные утилиты на Python для вычисления НОД и резервного копирования конфигурационных файлов.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## О проекте
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Две независимые CLI-утилиты на Python 3.10+, без внешних зависимостей:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+| Утилита | Назначение |
+|---------|-----------|
+| src/gcd_tool.py | НОД списка из N чисел (алгоритм Евклида) |
+| src/backup_tool.py | Резервное копирование конфигов в tar.gz + SHA-256 |
+
+Проект выполнен в рамках производственной практики в КГБ ПОУ «Хабаровский промышленно-экономический техникум», специальность 09.02.07 «Информационные системы и программирование».
+
+## Возможности
+
+### gcd_tool
+
+- НОД списка из N ≥ 1 чисел
+- Ввод и вывод через консоль или через файл
+- Обработка граничных случаев: пустой ввод, нули, отрицательные, нечисловые данные
+- Ранний выход при НОД = 1
+
+### backup_tool
+
+- Рекурсивный поиск конфигов по маскам: conf, ini, cfg, yaml, yml, json
+- Архивы с меткой времени: config_backup_YYYYMMDD_HHMMSS.tar.gz
+- Файл manifest.json с SHA-256 хэшами
+- Проверка целостности без распаковки
+- Сохранение старых версий как *.bak при конфликтах
+- Логирование операций
+- Четыре команды: backup, restore, verify, list
+
+## Установка
+
+Требуется Python 3.10 или выше. Внешних зависимостей нет.
+
+Клонируйте репозиторий и перейдите в его каталог:
+
+```
+git clone <url-репозитория>
+cd gcd-backup-tool
+```
+
+## Использование — НОД
+
+Интерактивный режим:
+
+```
+python src/gcd_tool.py
+```
+
+Из файла в консоль:
+
+```
+python src/gcd_tool.py --input numbers.txt
+```
+
+Из файла в файл:
+
+```
+python src/gcd_tool.py -i numbers.txt -o result.txt
+```
+
+Коды выхода:
+- 0 — успех
+- 1 — пустой список чисел
+- 2 — файл не найден
+- 3 — ошибка формата ввода
+
+## Использование — Backup
+
+Создание резервной копии:
+
+```
+python src/backup_tool.py backup --source ./config --dest ./backups
+```
+
+Проверка целостности:
+
+```
+python src/backup_tool.py verify --archive backups/cfg_XXX.tar.gz
+```
+
+Восстановление:
+
+```
+python src/backup_tool.py restore --archive backups/cfg_XXX.tar.gz --target ./config
+```
+
+Список архивов:
+
+```
+python src/backup_tool.py list --dest ./backups
+```
+
+## Структура проекта
+
+```
+gcd-backup-tool/
+├── README.md
+├── README.en.md
+├── LICENSE
+├── .gitignore
+├── docs/
+│   ├── TZ.md
+│   ├── MAINTENANCE.md
+│   └── TESTCASES.md
+├── src/
+│   ├── gcd_tool.py
+│   └── backup_tool.py
+└── tests/
+    ├── test_gcd.py
+    └── test_backup.py
+```
+
+## Тестирование
+
+Все тесты запускаются стандартной командой:
+
+```
+python -m unittest discover -s tests -v
+```
+
+Ожидаемый результат:
+
+```
+Ran 20 tests in 0.087s
+OK
+```
+
+## Документация
+
+- docs/TZ.md — техническое задание
+- docs/MAINTENANCE.md — регламент технического обслуживания
+- docs/TESTCASES.md — тест-кейсы
+- README.en.md — английская версия
+
+## Матрица соответствия ТЗ
+
+| ID | Модуль | Требование | Статус |
+|----|--------|-----------|:---:|
+| Ф-01 | gcd_tool | Ввод из консоли | выполняется |
+| Ф-02 | gcd_tool | Ввод из файла | выполняется |
+| Ф-03 | gcd_tool | НОД (Евклид) | выполняется |
+| Ф-04 | gcd_tool | Вывод в консоль или файл | выполняется |
+| Ф-05 | gcd_tool | Обработка ошибок | выполняется |
+| Б-01 | backup_tool | Поиск конфигов | выполняется |
+| Б-02 | backup_tool | Создание tar.gz | выполняется |
+| Б-03 | backup_tool | manifest с SHA-256 | выполняется |
+| Б-04 | backup_tool | Восстановление с проверкой | выполняется |
+| Б-05 | backup_tool | Сохранение *.bak | выполняется |
+| Б-06 | backup_tool | Логирование | выполняется |
+| Д-01 | docs | README на русском | выполняется |
+| Д-02 | docs | README на английском | выполняется |
+| Д-03 | docs | Регламент обслуживания | выполняется |
+| Д-04 | docs | Тест-кейсы | выполняется |
+
+## Лицензия
+
+MIT. Полный текст в файле LICENSE.
+
+---
+
+Выполнил: ФИО студента, группа ИС-31
+КГБ ПОУ «Хабаровский промышленно-экономический техникум», 2026
