@@ -524,6 +524,9 @@ Ran 20 tests in 0.087s
 
 OK
 ```
+**Выполнила:** Гусева Дарья Сергеевна, группа ИСП-31  
+**Учебное заведение:** КГБ ПОУ «Хабаровский промышленно-экономический техникум»  
+**Год:** 2026
 ENGLISH <img src="https://flagcdn.com/24x18/gb.png" alt="GB" height="14">
 # gcd-backup-tool
 
@@ -1054,4 +1057,6 @@ Ran 20 tests in 0.087s
 
 OK
 ```
-
+Completed by: Guseva Darya Sergeevna, group ISP-31
+Educational institution: KGB POU «Khabarovskiy promyshlenno-ekonomicheskiy tekhnikum» 
+Year: 2026
