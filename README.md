@@ -1,4 +1,4 @@
-РУССКИЙ <img src="https://flagcdn.com/24x18/ru.png" alt="RU" height="14">
+РУССКИЙ <img src="https://flagcdn.com/24x18/ru.png" alt="RU" height="14"> <img src="https://flagcdn.com/24x18/gb.png" alt="GB" height="14">
 # gcd-backup-tool
 Утилиты на Python: НОД списка чисел (Евклид) и резервное копирование конфигов (tar.gz + SHA-256). Полная документация.
 НОД и резервное копирование конфигураций
