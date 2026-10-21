@@ -1,5 +1,5 @@
+РУССКИЙ 
 # gcd-backup-tool
-Русский 
 Утилиты на Python: НОД списка чисел (Евклид) и резервное копирование конфигов (tar.gz + SHA-256). Полная документация.
 НОД и резервное копирование конфигураций
 
@@ -524,7 +524,7 @@ Ran 20 tests in 0.087s
 
 OK
 ```
-Английский
+АНГЛИЙСКИЙ
 # gcd-backup-tool
 
 Python utilities: GCD of a list of numbers (Euclidean algorithm) and backup of configuration files (tar.gz + SHA-256). Full documentation.
