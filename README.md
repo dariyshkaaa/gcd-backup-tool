@@ -1061,4 +1061,5 @@ OK
 Completed by: Guseva Darya Sergeevna, group ISP-31
 
 Educational institution: KGB POU «Khabarovskiy promyshlenno-ekonomicheskiy tekhnikum» 
+
 Year: 2026
