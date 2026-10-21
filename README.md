@@ -524,7 +524,7 @@ Ran 20 tests in 0.087s
 
 OK
 ```
-АНГЛИЙСКИЙ <img src="https://flagcdn.com/24x18/gb.png" alt="GB" height="14">
+ENGLISH <img src="https://flagcdn.com/24x18/gb.png" alt="GB" height="14">
 # gcd-backup-tool
 
 Python utilities: GCD of a list of numbers (Euclidean algorithm) and backup of configuration files (tar.gz + SHA-256). Full documentation.
