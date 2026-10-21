@@ -1058,8 +1058,6 @@ Ran 20 tests in 0.087s
 
 OK
 ```
-Completed by: Guseva Darya Sergeevna, group ISP-31
-
-Educational institution: KGB POU «Khabarovskiy promyshlenno-ekonomicheskiy tekhnikum» 
-
-Year: 2026
+**Completed by:** Guseva Darya Sergeevna, group ISP-31
+**Educational institution:** KGB POU «Khabarovskiy promyshlenno-ekonomicheskiy tekhnikum» 
+**Year:** 2026
