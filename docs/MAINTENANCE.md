@@ -125,7 +125,6 @@
 2026-10-21 09:14:22 | restore | DevOps | Частично | 1 файл пропущен (ошибка SHA-256)
 ```
 
-Журнал хранится в файле `/var/log/myapp_backup.log` (Linux) или `C:\Logs\backup.log` (Windows).
 
 ---
 
